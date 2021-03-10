@@ -1,1 +1,1 @@
-kafka-common-property: kafka-common-prod-value 
+broker.name: prod.broker.name
