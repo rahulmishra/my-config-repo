@@ -1,1 +1,13 @@
-log.name: acp
+logging:
+  level:
+    com.gopenske.cf.foundation: INFO
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: TRACE
+        aop:
+          interceptor:
+            PerformanceMonitorInterceptor: TRACE
+  pattern:
+    console: "%d{UNIX_MILLIS} %5p %t %c{1} p:%X{prv}|f:%X{fed}|c:%X{cst}|s:%X{x-pen-ctx-id} - %m%n"

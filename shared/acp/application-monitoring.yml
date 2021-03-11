@@ -1,1 +1,42 @@
-monitoring.name: acp
+foundation.poller.metrics:
+  timer-enabled: true
+  tags:
+    stack: pcf
+  enable-default-tags: true
+management:
+  metrics:
+    enable:
+      jvm: true
+  endpoint:
+    health:
+      enabled: true
+    metrics:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include:  "*"
+    jmx:
+      exposure:
+        include: "*"
+  endpoints:
+    web:
+      exposure:
+        include: "*"                                        # if not *, then metrics and wavefront should be in include list
+  metrics:
+    export:
+      wavefront:
+        enabled: true
+        uri: ${vcap.services.monitoring.service.credentials.wavefront-proxy-uri}
+        step: ${vcap.services.monitoring.service.credentials.wavefront-reporting-interval}
+
+  tags:                                                   # app and env are minimum tags needed by each app. As per applications, additional tags should be listed here to define the context for metrics
+    cf_feed_type: telemetry
+    cf_provider_cd: xrs
+    app: xrs-telemetry-poller
+    source: xrs-telemetry-poller
+
+  wavefront:
+    application:
+      name: xrs-poller
+      service: xrs-telemetry-poller

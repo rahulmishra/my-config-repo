@@ -1,1 +1,11 @@
-common-property: my-telemetry-poller
+management:
+ tags:
+  cf_feed_type: telemetry
+  cf_provider_cd: xrs
+  app: xrs-telemetry-poller
+  source: xrs-telemetry-poller
+
+wavefront:
+ application:
+    name: xrs-poller
+    service: xrs-telemetry-poller
