@@ -1,15 +1,1 @@
-foundation.poller.http.provider:
-  activation-source:
-    encryption:
-      key: ${vcap.services.workallocator_poller_encryption_credhub.credentials.WA_Poller_encryption_key}
-  feedReplication:
-    region: us-east-1
-    replication-bucket: pske-prd-repl-tsp-rdn
-    replication-credentials-access-key: ${vcap.services.s3_auth_poller_credhub.credentials.shared_s3_accesskey}
-    replication-credentials-secret-key: ${vcap.services.s3_auth_poller_credhub.credentials.shared_s3_secretkey}
-  feedPersistence:
-    s3-config:
-      region: us-east-1
-      bucket: pske-acp-tsp-rdn
-      aws-credentials-access-key: ${vcap.services.s3_auth_poller_credhub.credentials.shared_s3_accesskey}
-      aws-credentials-secret-key: ${vcap.services.s3_auth_poller_credhub.credentials.shared_s3_secretkey}
+c: d
